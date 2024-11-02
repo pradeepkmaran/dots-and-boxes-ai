@@ -1,5 +1,6 @@
 from pyray import *
 from raylib import *
+from ainew import think
 
 def checkCollision(mouse_point, h_bar_pos, v_bar_pos, row_n, col_n):
     for x in range(col_n):
@@ -39,8 +40,11 @@ def game(player_name, row_n, col_n):
     gray_h_tex = load_texture("assets/game/bars/gray-bar-horizontal.png")
     gray_v_tex = load_texture("assets/game/bars/gray-bar-vertical.png")
 
+
     red_win_tex = load_texture("assets/game/red-win.png")
     blue_win_tex = load_texture("assets/game/blue-win.png")
+
+    all_tex = [dot_tex, red_h_tex, red_v_tex, blue_h_tex, blue_v_tex, gray_h_tex, gray_v_tex, red_win_tex, blue_win_tex]
 
     screen_width = 800
     screen_height = 450
@@ -66,8 +70,12 @@ def game(player_name, row_n, col_n):
 
         mouse_point = get_mouse_position()
         result = None
-        if is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+        if player_turn and is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
             result = checkCollision(mouse_point, h_bar_pos, v_bar_pos, row_n, col_n)
+
+        if not player_turn:
+            result = think(boxes, h_bars, v_bars, all_tex)
+
         if result is not None:
             if result[0] == 0:
                 if h_bars[result[1]][result[2]] == gray_h_tex:
