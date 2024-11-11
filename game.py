@@ -117,14 +117,6 @@ def game(player_name, row_n, col_n):
                     pos_x = start_dot_x + x * 100 + 50
                     pos_y = start_dot_y + y * 100 + 50
                     draw_texture(boxes[y][x], pos_x, pos_y, WHITE)
-
-        # for row in h_bar_pos:
-        #     for ele in row:
-        #         draw_rectangle(int(ele.x), int(ele.y), int(ele.width), int(ele.height), BLACK)
-
-        # for row in v_bar_pos:
-        #     for ele in row:
-        #         draw_rectangle(int(ele.x), int(ele.y), int(ele.width), int(ele.height), BLACK)
         
         if player_turn:
             draw_text("Red Turn", 20, 20, 30, RED)
