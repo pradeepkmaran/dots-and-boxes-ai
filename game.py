@@ -32,17 +32,17 @@ def fillBox(boxes, h_bars, v_bars, row_n, col_n, gray_h_tex, gray_v_tex, red_win
     return not player_turn
 
 def game(player_name, row_n, col_n):
-    dot_tex = load_texture("assets/game/dot.png")
-    red_h_tex = load_texture("assets/game/bars/red-bar-horizontal.png")
-    red_v_tex = load_texture("assets/game/bars/red-bar-vertical.png")
-    blue_h_tex = load_texture("assets/game/bars/blue-bar-horizontal.png")
-    blue_v_tex = load_texture("assets/game/bars/blue-bar-vertical.png")
-    gray_h_tex = load_texture("assets/game/bars/gray-bar-horizontal.png")
-    gray_v_tex = load_texture("assets/game/bars/gray-bar-vertical.png")
+    dot_tex = load_texture("assets/dot.png")
+    red_h_tex = load_texture("assets/red-bar-horizontal.png")
+    red_v_tex = load_texture("assets/red-bar-vertical.png")
+    blue_h_tex = load_texture("assets/blue-bar-horizontal.png")
+    blue_v_tex = load_texture("assets/blue-bar-vertical.png")
+    gray_h_tex = load_texture("assets/gray-bar-horizontal.png")
+    gray_v_tex = load_texture("assets/gray-bar-vertical.png")
 
 
-    red_win_tex = load_texture("assets/game/red-win.png")
-    blue_win_tex = load_texture("assets/game/blue-win.png")
+    red_win_tex = load_texture("assets/red-win.png")
+    blue_win_tex = load_texture("assets/blue-win.png")
 
     all_tex = [dot_tex, red_h_tex, red_v_tex, blue_h_tex, blue_v_tex, gray_h_tex, gray_v_tex, red_win_tex, blue_win_tex]
 

@@ -4,11 +4,11 @@ from boardDeets import *
 from game import *
 
 def playerDeets():
-    screen_width = 800
-    screen_height = 450
+    screen_width = 1920
+    screen_height = 1080
     set_target_fps(60)
 
-    input_box = Rectangle(screen_width // 2 - 200, 220, 400, 50)
+    input_box = Rectangle(screen_width // 2 - 200, screen_height // 2 - 100, 400, 50)
     player_name = ""
     active = False
     color_inactive = LIGHTGRAY
@@ -24,10 +24,13 @@ def playerDeets():
     frame_height = button.height / 3
     source_rec = [0, frame_height, button.width, frame_height]
 
-    btn_bounds = [screen_width / 2 - button.width / 2, 
-                  screen_height * 4 / 5 - button.height / 3 / 2, 
+    btn_bounds = [screen_width // 2 - button.width // 2 + 10, 
+                  screen_height // 2 - 50, 
                   button.width, 
                   frame_height]
+    
+    click_text_x, click_text_y = screen_width // 2 - 115, screen_height // 2 - 150 
+    enter_text_x, enter_text_y = screen_width // 2 - 115, screen_height // 2 - 130
 
     btn_state = 0       # Button state: 0-NORMAL, 1-MOUSE_HOVER, 2-PRESSED
     btn_action = False  # Button action should be activated
@@ -68,8 +71,8 @@ def playerDeets():
 
         if btn_action and player_name:
             clear_background(RAYWHITE)
-            # boardDeets(player_name)
-            game(player_name, 6, 6)
+            boardDeets(player_name)
+            # game(player_name, 6, 6)
             break   
 
         offset_x = -1 if btn_state != 0 else 0
@@ -78,8 +81,8 @@ def playerDeets():
         begin_drawing()
         clear_background(RAYWHITE)
 
-        draw_text("Click on the input box!", 240, 140, 20, GRAY)
-        draw_text("Enter your username:", 240, 170, 20, GRAY)
+        draw_text("Click on the input box!", click_text_x, click_text_y, 20, GRAY)
+        draw_text("Enter your username:", enter_text_x, enter_text_y, 20, GRAY)
         draw_rectangle_rec(input_box, color)
         draw_rectangle_lines(int(input_box.x), int(input_box.y), int(input_box.width), int(input_box.height), DARKGRAY)
         draw_text(player_name, int(input_box.x) + 5, int(input_box.y) + 8, 40, GRAY)

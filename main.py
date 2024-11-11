@@ -3,12 +3,12 @@ from raylib import *
 from playerDeets import * 
 
 def main():
-    monitor_idx = get_current_monitor()
-    monitor_w = get_monitor_width(monitor_idx)
-    monitor_h = get_monitor_height(monitor_idx)
+    # monitor_idx = get_current_monitor()
+    # monitor_w = get_monitor_width(monitor_idx)
+    # monitor_h = get_monitor_height(monitor_idx)
 
-    screen_width = 800
-    screen_height = 450
+    screen_width = 1920
+    screen_height = 1080
 
     # screen_width = monitor_w
     # screen_height = monitor_h
@@ -38,7 +38,7 @@ def main():
         mouse_point = get_mouse_position()
         btn_action = False
         
-        draw_text("WelcOme tO dOts and bOxes :D", screen_width//3-20, 60, 20, GRAY)
+        draw_text("WelcOme tO dOts and bOxes :D", screen_width//2-150, screen_height//2-100, 20, GRAY)
 
         if check_collision_point_rec(mouse_point, btn_bounds):
             if is_mouse_button_down(MOUSE_BUTTON_LEFT):
