@@ -55,8 +55,8 @@ def game(player_name, row_n, col_n):
     start_dot_x = (screen_width//2) - ((col_n//2) * 100) - dot_tex.width//2
     start_dot_y = (screen_height//2) - ((row_n//2) * 100) - dot_tex.height//2
 
-    h_bar_pos = [[Rectangle(start_dot_x + x * 100, start_dot_y + y * 100 ,95, 30,BLACK) for y in range(row_n+1)] for x in range(col_n)]
-    v_bar_pos = [[Rectangle(start_dot_x + x * 100, start_dot_y + y * 100, 30, 95,BLACK) for y in range(row_n)] for x in range(col_n+1)]
+    h_bar_pos = [[Rectangle(start_dot_x + dot_tex.width//2 + x * 100 - 10, start_dot_y + dot_tex.height//2 + y * 100 - 10 ,95, 30,BLACK) for y in range(row_n+1)] for x in range(col_n)]
+    v_bar_pos = [[Rectangle(start_dot_x + dot_tex.width//2 + x * 100 - 10, start_dot_y + dot_tex.height//2 + y * 100 - 10, 30, 95,BLACK) for y in range(row_n)] for x in range(col_n+1)]
 
     boxes = [[None for y in range(col_n)] for x in range(row_n)]
 
@@ -66,7 +66,6 @@ def game(player_name, row_n, col_n):
 
     while not window_should_close():
 
-        # Fill boxes and check for turn change
         player_turn = fillBox(boxes, h_bars, v_bars, row_n, col_n, gray_h_tex, gray_v_tex, red_win_tex, blue_win_tex, not player_turn)
 
         mouse_point = get_mouse_position()
@@ -88,14 +87,12 @@ def game(player_name, row_n, col_n):
                     v_bars[result[1]][result[2]] = red_v_tex if player_turn else blue_v_tex
                     player_turn = not player_turn
 
-        # Update the score based on boxes
         red_points = sum(1 for row in boxes for box in row if box == red_win_tex)
         blue_points = sum(1 for row in boxes for box in row if box == blue_win_tex)
 
         begin_drawing()
         clear_background(RAYWHITE)
 
-        # Draw the grid and bars
         for x in range(col_n+1):
             for y in range(row_n+1):
                 pos_x = start_dot_x + x * 100
@@ -121,7 +118,14 @@ def game(player_name, row_n, col_n):
                     pos_y = start_dot_y + y * 100 + 50
                     draw_texture(boxes[y][x], pos_x, pos_y, WHITE)
 
-        # Draw player turn text
+        # for row in h_bar_pos:
+        #     for ele in row:
+        #         draw_rectangle(int(ele.x), int(ele.y), int(ele.width), int(ele.height), BLACK)
+
+        # for row in v_bar_pos:
+        #     for ele in row:
+        #         draw_rectangle(int(ele.x), int(ele.y), int(ele.width), int(ele.height), BLACK)
+        
         if player_turn:
             draw_text("Red Turn", 20, 20, 30, RED)
             draw_text("Blue Turn", 20, 60, 30, GRAY)
@@ -129,9 +133,7 @@ def game(player_name, row_n, col_n):
             draw_text("Red Turn", 20, 20, 30, GRAY)
             draw_text("Blue Turn", 20, 60, 30, BLUE)
 
-        # Draw score
         draw_text(f"Red Points: {red_points}", 20, 100, 30, RED)
         draw_text(f"Blue Points: {blue_points}", 20, 140, 30, BLUE)
 
         end_drawing()
-
