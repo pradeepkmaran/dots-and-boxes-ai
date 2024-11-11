@@ -69,7 +69,7 @@ def playerDeets():
         if btn_action and player_name:
             clear_background(RAYWHITE)
             # boardDeets(player_name)
-            game(player_name, 2, 3)
+            game(player_name, 6, 6)
             break   
 
         offset_x = -1 if btn_state != 0 else 0
