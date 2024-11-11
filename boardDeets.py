@@ -22,7 +22,7 @@ def boardDeets(playerName):
     color_rows = color_inactive
     color_cols = color_inactive
 
-    # Load textures
+    fx_button = load_sound("assets/buttonfx.wav")
     button_disabled = load_texture("assets/enter-button-disabled.png")
     button_open = load_texture("assets/enter-button-open.png")
     button = button_disabled 
@@ -94,6 +94,7 @@ def boardDeets(playerName):
                 cols = int(cols_text)
                 if 1 <= rows < 10 and 1 <= cols < 10:
                     clear_background(RAYWHITE)
+                    play_sound(fx_button)
                     game(playerName, rows, cols)
                     break
             except ValueError:

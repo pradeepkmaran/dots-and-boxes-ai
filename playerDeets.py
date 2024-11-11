@@ -16,6 +16,7 @@ def playerDeets():
     color = color_inactive
 
     # Load textures
+    fx_button = load_sound("assets/buttonfx.wav")
     button_disabled = load_texture("assets/enter-button-disabled.png")
     button_open = load_texture("assets/enter-button-open.png")
     button = button_disabled 
@@ -71,8 +72,8 @@ def playerDeets():
 
         if btn_action and player_name:
             clear_background(RAYWHITE)
+            play_sound(fx_button)
             boardDeets(player_name)
-            # game(player_name, 6, 6)
             break   
 
         offset_x = -1 if btn_state != 0 else 0
