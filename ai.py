@@ -27,7 +27,7 @@ def findScores(boxes, all_tex):
     return (ai_score - player_score) + 0.5 * control_score
 
 def immediate_move(player_turn, boxes, h_bars, v_bars, all_tex, depth=0, alpha=float('-inf'), beta=float('inf')):
-    if depth == MAX_DEPTH or sum(1 for row in boxes for box in row if box is None) <= 4:
+    if depth == MAX_DEPTH:
         return None, findScores(boxes, all_tex)
 
     best_move = None
