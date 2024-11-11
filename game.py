@@ -1,7 +1,7 @@
 import time
 from pyray import *
 from raylib import *
-from ainew import think_immediate
+from ai import think
 
 def checkCollision(mouse_point, h_bar_pos, v_bar_pos, row_n, col_n):
     for x in range(col_n):
@@ -75,7 +75,7 @@ def game(player_name, row_n, col_n):
 
         if not player_turn:
             time.sleep(1)
-            result = think_immediate(boxes, h_bars, v_bars, all_tex)
+            result = think(boxes, h_bars, v_bars, all_tex)
 
         if result is not None:
             if result[0] == 0:
