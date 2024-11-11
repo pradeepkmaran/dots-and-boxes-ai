@@ -2,7 +2,7 @@ from pyray import *
 from raylib import *
 from game import * 
 
-def boardDeets(playerName):
+def boardDeets(player_name):
     rows = 6
     cols = 6
 
@@ -95,7 +95,7 @@ def boardDeets(playerName):
                 if 1 <= rows < 10 and 1 <= cols < 10:
                     clear_background(RAYWHITE)
                     play_sound(fx_button)
-                    game(playerName, rows, cols)
+                    game(player_name, rows, cols)
                     break
             except ValueError:
                 print("Enter valid number")

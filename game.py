@@ -2,6 +2,7 @@ import time
 from pyray import *
 from raylib import *
 from ai import think
+from endGame import endGame
 
 def checkCollision(mouse_point, h_bar_pos, v_bar_pos, row_n, col_n):
     for x in range(col_n):
@@ -65,6 +66,18 @@ def game(player_name, row_n, col_n):
     player_turn = True
 
     while not window_should_close():
+
+        filled_boxes = 0
+        for row in boxes:
+            for box in row:
+                if(box != None):
+                    filled_boxes+=1
+
+        if(filled_boxes == row_n * col_n):
+            time.sleep(1.5)
+            clear_background(WHITE)
+            endGame(player_name, red_points, blue_points)
+            break
 
         player_turn = fillBox(boxes, h_bars, v_bars, row_n, col_n, gray_h_tex, gray_v_tex, red_win_tex, blue_win_tex, not player_turn)
 
