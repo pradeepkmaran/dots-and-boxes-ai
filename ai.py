@@ -27,27 +27,34 @@ def findScores(boxes, all_tex):
     return (ai_score - player_score) + 0.5 * control_score
 
 def immediate_move(player_turn, boxes, h_bars, v_bars, all_tex, depth=0, alpha=float('-inf'), beta=float('inf')):
-    if depth == MAX_DEPTH:
+    # Dynamically adjust the maximum depth based on available moves
+    available_moves = get_available_moves(h_bars, v_bars, all_tex)
+    
+    if depth == MAX_DEPTH or len(available_moves) == 0:  # Stop if no more moves
         return None, findScores(boxes, all_tex)
-
+    
     best_move = None
     best_score = float('-inf') if player_turn == 0 else float('inf')
-    available_moves = get_available_moves(h_bars, v_bars, all_tex)
 
     for move in available_moves:
+        # Make a copy of the game state to simulate the move
         new_h_bars = [row[:] for row in h_bars] 
         new_v_bars = [row[:] for row in v_bars]
         new_boxes = [row[:] for row in boxes]  
 
+        # Apply the move
         if move[0] == 0: 
             new_h_bars[move[1]][move[2]] = all_tex[3] if player_turn == 0 else all_tex[1]
         else:
             new_v_bars[move[1]][move[2]] = all_tex[4] if player_turn == 0 else all_tex[2]
         
+        # Update boxes based on the move
         updateBoxes(player_turn, new_boxes, new_h_bars, new_v_bars, all_tex)
         
+        # Recurse to evaluate the opponent's move
         _, score = immediate_move(1 - player_turn, new_boxes, new_h_bars, new_v_bars, all_tex, depth + 1, alpha, beta)
 
+        # Alpha-beta pruning for efficiency
         if player_turn == 0:
             if score > best_score:
                 best_score = score
@@ -59,6 +66,7 @@ def immediate_move(player_turn, boxes, h_bars, v_bars, all_tex, depth=0, alpha=f
                 best_move = move
             beta = min(beta, best_score)
 
+        # Alpha-beta pruning cut-off
         if beta <= alpha:
             break
 
@@ -68,11 +76,11 @@ def get_available_moves(h_bars, v_bars, all_tex):
     available_moves = []
     for i, row in enumerate(h_bars):
         for j, ele in enumerate(row):
-            if ele == all_tex[5]:
+            if ele == all_tex[5]:  # Gray horizontal bars
                 available_moves.append([0, i, j])
     for i, row in enumerate(v_bars):
         for j, ele in enumerate(row):
-            if ele == all_tex[6]:
+            if ele == all_tex[6]:  # Gray vertical bars
                 available_moves.append([1, i, j])
     return available_moves
 
@@ -82,4 +90,4 @@ def think(boxes_orig, h_bars_orig, v_bars_orig, all_tex):
     v_bars = [[x for x in row] for row in v_bars_orig]
     
     best_move, _ = immediate_move(0, boxes, h_bars, v_bars, all_tex)
-    return best_move 
+    return best_move

@@ -3,15 +3,8 @@ from raylib import *
 from playerDeets import * 
 
 def main():
-    # monitor_idx = get_current_monitor()
-    # monitor_w = get_monitor_width(monitor_idx)
-    # monitor_h = get_monitor_height(monitor_idx)
-
     screen_width = 1920
     screen_height = 1080
-
-    # screen_width = monitor_w
-    # screen_height = monitor_h
 
     init_window(screen_width, screen_height, "dOts and BOxes")
     toggle_fullscreen()
@@ -33,7 +26,6 @@ def main():
 
     set_target_fps(120)
 
-    # Main menu loop
     while not window_should_close():
         mouse_point = get_mouse_position()
         btn_action = False
