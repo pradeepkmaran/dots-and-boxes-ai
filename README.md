@@ -2015,7 +2015,7 @@ Total Joint Probability for the given states = 0.1878
 
 # Mini Project: Dots and Boxes
 **Date :** 12/11/2024
-## **PROBLEM STATEMENT:**
+## **Problem Statement:**
  
 The goal of this project is to develop an artificial intelligence (AI) system for "Dots and Boxes," a two-player strategy game. This project focuses on implementing AI techniques to create an intelligent opponent for human players and to enable automated gameplay between AI agents.
 
@@ -2051,7 +2051,7 @@ The game is played on a square grid of dots, with board sizes typically set to 3
 #### AI Configuration:
 The AI uses Alpha-Beta Pruning combined with heuristic evaluation to optimize decision-making. This algorithms enable the AI to analyze the board, choose advantageous moves, and play strategically with efficient computation.
 
-## KEY FEATURES
+## Key Features
 ### Board Representation:
 The game board is modeled as a 2D array of dots and lines (horizontal and vertical), where each cell represents a square that can be claimed by either player. Each line segment (horizontal or vertical) is tracked to determine whether it has been filled, allowing quick checking of completed squares.
 ### Player Moves:
@@ -2066,7 +2066,7 @@ The heuristic function evaluates the board by scoring the number of claimed boxe
 The game ends when all boxes on the board are claimed. The player with the most boxes is declared the winner.
 A graphical notification shows the winner when the game concludes in Human vs. AI mode.
 
-## ALGORITHM:
+## Algorithm:
 ### Algorithm Overview
 The AI makes decisions by evaluating each possible move using Alpha-Beta Pruning combined with a Heuristic Evaluation Function. The pruning reduces the number of moves the AI evaluates by cutting off branches that won't improve the outcome, while the heuristic function scores the board states based on desirable configurations, such as control of boxes.
 
@@ -2159,7 +2159,7 @@ function get_available_moves(h_bars, v_bars, all_tex):
 **Adaptability:** The algorithm’s structure allows the AI to adapt dynamically to various game states and opponent strategies. As each move is evaluated based on the current board setup and the opponent's recent actions, the AI is capable of responding in real time, adjusting its strategy to exploit open areas, reinforce its own advantages, and counter the opponent’s moves. This adaptability ensures that the AI remains competitive and presents a challenging opponent, as it does not rely solely on predefined moves but rather recalibrates its approach continuously throughout the game.
 By combining Alpha-Beta Pruning with a nuanced heuristic function that considers both immediate and long-term gains, the AI is equipped to make calculated, strategic decisions that enhance both its efficiency and effectiveness. This approach not only improves game performance but also creates a challenging and engaging experience for the player.
 
-## MODULES AND FUNCTIONS:
+## Modules and Functions:
 ### pyray and raylib Modules
 These modules are used for game development, handling graphics, input, and audio. These are the main modules referenced in the code.
 ```bash
@@ -2204,7 +2204,7 @@ draw_rectangle_lines(x, y, width, height, color)
  ### *EndGame.py* module
  The module helps to display the game over the screen at the end of a Dots and Boxes game. The screen shows the results (who won or if it's a tie), the score, and two buttons—Play Again and Quit. The player can choose to restart the game or quit the application. It handles button interactions with mouse hover, press, and release states. It returns `endGame()` function that helps display the results of the game.
  
-## SOURCE CODE:
+## Source Code:
 
 ### 1. Main.py
 ```python
@@ -2844,7 +2844,7 @@ def endGame(player_name, red_points, blue_points):
     unload_texture(quit_button)
     close_window()
 ```
-## OUTPUT SCREENSHOTS
+## Output Screenshots
 
 #### Title Page View 
 <img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(01).jpeg?raw=true'>
@@ -2885,7 +2885,7 @@ def endGame(player_name, red_points, blue_points):
 #### Result Page View shows that game is tied
 <img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(26).jpeg?raw=true'>
 
-## CONCLUSION:
+## Conclusion:
 The Dots and Boxes AI project demonstrates the effectiveness of using AI to create a challenging and engaging game opponent through a Minimax search algorithm with Alpha-Beta Pruning. By employing this strategy, the AI is able to make strategic decisions that simulate a competitive human player, evaluating potential moves in real-time. The Alpha-Beta Pruning algorithm allows the AI to efficiently explore the game tree, pruning branches that won't affect the outcome, ensuring that the AI can choose optimal moves without the need to examine every possible option.
 
 In addition to the search algorithm, the AI uses a custom-designed heuristic evaluation function that scores the current game state based on factors such as box ownership and control of the board. This evaluation guides the AI to make smart, goal-oriented moves, balancing the pursuit of immediate wins with long-term control of the game.
