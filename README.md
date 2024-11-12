@@ -2844,16 +2844,55 @@ def endGame(player_name, red_points, blue_points):
     unload_texture(quit_button)
     close_window()
 ```
-## OUTPUT AND TEST CASES
+## OUTPUT SCREENSHOTS
 
+#### Title Page View 
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(01).jpeg?raw=true'>
+
+#### Name Page View
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(03).jpeg?raw=true'>
+
+#### Board Dimension Page View
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(04).jpeg?raw=true'>
+
+#### Inital Board Setup
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(05).jpeg?raw=true'>
+
+#### First Move
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(06).jpeg?raw=true'>
+
+#### AI Scores First Point
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(12).jpeg?raw=true'>
+
+#### Players Out Of Moves
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(09).jpeg?raw=true'>
+
+#### Result Page View shows that AI has won the game
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(10).jpeg?raw=true'>
+
+#### Board View of another game with AI
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(17).jpeg?raw=true'>
+
+#### Result Page View of another game with AI
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(18).jpeg?raw=true'>
+
+#### Board View with player leading the game
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(22).jpeg?raw=true'>
+
+#### Result Page View shows that the player and AI has made equal number of points
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(25).jpeg?raw=true'>
+
+#### Result Page View shows that game is tied
+<img src='https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/alpha-beta/screenshots/screenshot%20(26).jpeg?raw=true'>
 
 ## CONCLUSION:
-The Dots and Boxes AI project demonstrates the effectiveness of using AI to create a challenging and engaging game opponent. By implementing algorithms like Alpha-Beta Pruning and a carefully designed heuristic evaluation, the AI can make strategic, competitive moves in real-time. The Alpha-Beta Pruning algorithm allows the AI to evaluate the game tree efficiently, choosing optimal moves without needing to examine every possible option, while the heuristic helps the AI make smart choices based on board control and scoring potential.
+The Dots and Boxes AI project demonstrates the effectiveness of using AI to create a challenging and engaging game opponent through a Minimax search algorithm with Alpha-Beta Pruning. By employing this strategy, the AI is able to make strategic decisions that simulate a competitive human player, evaluating potential moves in real-time. The Alpha-Beta Pruning algorithm allows the AI to efficiently explore the game tree, pruning branches that won't affect the outcome, ensuring that the AI can choose optimal moves without the need to examine every possible option.
 
-Python and Raylib were essential for integrating game mechanics and visual elements, making the game enjoyable and accessible for players. The AI’s decision-making was fine-tuned through manual testing and testing various approaches such as a simple minimax algorithm, minimax with alpha-beta pruning and Monte Carlo Tree Search(MCTS), which provided insights into different strategic outcomes and helped improve the AI’s responsiveness to different game situations.
+In addition to the search algorithm, the AI uses a custom-designed heuristic evaluation function that scores the current game state based on factors such as box ownership and control of the board. This evaluation guides the AI to make smart, goal-oriented moves, balancing the pursuit of immediate wins with long-term control of the game.
 
-This project highlights the potential for AI in games, creating a fun and interactive experience that remains computationally efficient. With a flexible structure, the project could expand to include new strategies, more complex game variations, or even learning-based approaches. The Dots and Boxes AI successfully achieves an intelligent opponent and also serves as a strong foundation for exploring advanced AI techniques in game development.
+The project was implemented using Python, with game mechanics and visual elements facilitated by the Raylib library, which made it easy to create a visually engaging and interactive game interface. The AI's decision-making process was refined through extensive testing, including manual evaluation and experimenting with different strategies like the basic Minimax algorithm and the more advanced Minimax with Alpha-Beta Pruning. The final implementation focuses on improving the AI's responsiveness to varying game scenarios, ensuring that it provides a challenging opponent in every game session.
 
+This project highlights the power of AI in board games, delivering a fun and engaging player experience that remains computationally efficient. The flexible structure of the code allows for future expansion, with potential to integrate additional strategies, more complex game variations, or even machine learning-based approaches in the future. The Dots and Boxes AI successfully creates an intelligent opponent while serving as a solid foundation for exploring advanced AI techniques in game development.
 
 
 
