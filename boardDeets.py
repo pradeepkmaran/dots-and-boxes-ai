@@ -1,6 +1,6 @@
 from pyray import *
 from raylib import *
-from game import * 
+from Game import * 
 
 def boardDeets(player_name):
     rows = 6

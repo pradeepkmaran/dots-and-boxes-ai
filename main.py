@@ -1,6 +1,6 @@
 from pyray import *
 from raylib import *
-from playerDeets import * 
+from PlayerDeets import * 
 
 def main():
     screen_width = 1920

@@ -1,8 +1,8 @@
 import time
 from pyray import *
 from raylib import *
-from ai import think
-from endGame import endGame
+from AI import think
+from EndGame import endGame
 
 def checkCollision(mouse_point, h_bar_pos, v_bar_pos, row_n, col_n):
     for x in range(col_n):

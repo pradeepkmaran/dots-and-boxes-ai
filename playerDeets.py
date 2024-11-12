@@ -1,7 +1,7 @@
 from pyray import *
 from raylib import *
-from boardDeets import *
-from game import *
+from BoardDeets import *
+from Game import *
 
 def playerDeets():
     screen_width = 1920
