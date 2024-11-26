@@ -198,7 +198,6 @@ draw_rectangle_lines(x, y, width, height, color)
 ### <a href="https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/main/AI.py">5. AI.py</a> 
 ### <a href="https://github.com/pradeepkmaran/dots-and-boxes-ai/blob/main/EndGame.py">6. EndGame.py</a> 
 
-]
 ## Output Screenshots
 
 #### Title Page View 
